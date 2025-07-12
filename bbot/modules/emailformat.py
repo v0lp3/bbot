@@ -31,7 +31,6 @@ class emailformat(BaseModule):
             key = int(enc[:2], 16)
 
             email = "".join([chr(int(enc[i : i + 2], 16) ^ key) for i in range(0, len(enc), 2)]).lower()
-
             if email.endswith(query):
                 await self.emit_event(
                     email,
